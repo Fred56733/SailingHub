@@ -3,9 +3,9 @@ import React from "react";
 const Home = () => {
     return (
         <div className="home">
-        <h1>Welcome to the Crewmate Gallery</h1>
-        <p>Explore and create your own unique crewmates!</p>
-        <p>Use the navigation bar to get started.</p>
+        <h1>Welcome to Sailing Hub</h1>
+        <p>Explore and create your own unique posts to others in the sailing community!</p>
+        <p>Use the navigation bar at the top of the page to get started.</p>
         </div>
     );
 }
