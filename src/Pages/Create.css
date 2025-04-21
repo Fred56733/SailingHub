@@ -1,0 +1,90 @@
+/* General Page Styling */
+.create {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Form Container */
+.create form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Form Heading */
+.create h1 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #ccc;
+    text-align: center;
+}
+
+/* Label Styling */
+.create label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+/* Input and Textarea Styling */
+.create input,
+.create textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.create input:focus,
+.create textarea:focus {
+    border-color: #00bcd4;
+    outline: none;
+}
+
+/* Dropdown Styling */
+.create select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.create select:focus {
+    border-color: #00bcd4;
+    outline: none;
+}
+
+/* Button Styling */
+.create button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create button:hover {
+    background-color: #006977;
+}
