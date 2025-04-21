@@ -1,0 +1,50 @@
+/* General Gallery Styling */
+.home {
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #ccc;
+}
+
+/* Grid Layout for Cards */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Individual Card Styling */
+.posts-card {
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.posts-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Image Styling */
+.posts-card-img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+
+}
+
+/* Card Text Styling */
+.posts-card h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #ccc;
+}
+
+.posts-card p {
+    font-size: 1rem;
+    color: #ccc;
+}
