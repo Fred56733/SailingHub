@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # API files
-clieont.js
+.env
