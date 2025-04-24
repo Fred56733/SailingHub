@@ -47,6 +47,8 @@ const Create = () => {
                 console.error("Error updating data:", error);
             } else {
                 console.log("Post updated successfully!");
+                // Redirect to the post page after updating
+                window.location.href = `/`; // Redirect to the updated post page
             }
         } else {
             // If no ID is provided, create a new post
@@ -70,12 +72,15 @@ const Create = () => {
         <div className="create">
             <h1>Create a New Post</h1>
             <form onSubmit={handleSubmit}>
+                {/* Title Field */}
                 <label htmlFor="title">Title:</label>
                 <input type="text" id="title" name="title" value={post.title} onChange={handleChange} required />
 
+                {/* Post Content Field */}
                 <label htmlFor="content">Content:</label>
                 <textarea id="content" name="content" value={post.content} onChange={handleChange} required></textarea>
-
+            
+                {/* Image URL Field */} 
                 <label htmlFor="image">Image URL:</label>
                 <input type="url" id="image" name="image" value={post.image} onChange={handleChange} />
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../client";
+import "./Post.css"; // Add a CSS file for styling
 
 const Post = () => {
     const { id } = useParams(); // Get the post ID from the URL
@@ -50,38 +51,64 @@ const Post = () => {
                 .order('created_at', { ascending: true });
             setComments(data); // Refresh comments
         }
+
     };
 
     return (
-        <div className="post">
-            {post ? (
-                <>
-                    <h1>{post.title}</h1>
-                    <p>{post.content}</p>
-                    {post.image && <img src={post.image} alt={post.title} />}
-                </>
-            ) : (
-                <p>Loading post...</p>
-            )}
-
-            <h2>Comments</h2>
-            <div className="comments">
-                {comments.map((comment) => (
-                    <div key={comment.id} className="comment">
-                        <p>{comment.content}</p>
-                    </div>
-                ))}
+        <div className="post-container">
+            {/* Post Section */}
+            <div className="post-details">
+                {post ? (
+                    <>
+                        <h1 className="post-title">{post.title}</h1>
+                        <p className="post-content">{post.content}</p>
+                        {post.image && <img src={post.image} alt={post.title} className="post-image" />}
+                    </>
+                ) : (
+                    <p>Loading post...</p>
+                )}
             </div>
 
-            <form onSubmit={handleAddComment}>
-                <textarea
-                    value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
-                    placeholder="Leave a comment..."
-                    required
-                ></textarea>
-                <button type="submit">Add Comment</button>
-            </form>
+            <div className="button-container">
+                <button className="button" onClick={() => alert("Liked!")}>Like</button>
+                <button className="button" onClick={() => window.location.href = `/create/${id}`}>Edit Post</button>
+                <button className="button" onClick={async () => {
+                    const { error } = await supabase
+                        .from('sailing posts')
+                        .delete()
+                        .eq('id', id);
+                    if (error) console.error("Error deleting post:", error);
+                    else window.location.href = "/"; // Redirect to home after deletion
+                }}>Delete Post</button>
+
+            </div>
+
+            {/* Comments Section */}
+            <div className="interaction-section">
+                <div className="comments-list">
+                    <h3 className="comments-title">Comments</h3>
+                    {comments.length > 0 ? (
+                        comments.map((comment) => (
+                            <div key={comment.id} className="comment-item">
+                                <p>{comment.content}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No comments yet. Be the first to comment!</p>
+                    )}
+                
+                    <form onSubmit={handleAddComment} className="add-comment-form">
+                        <textarea
+                            value={newComment}
+                            onChange={(e) => setNewComment(e.target.value)}
+                            placeholder="Leave comment here..."
+                            className="comment-input"
+                            required
+                        ></textarea>
+                        <button type="submit" className="button">Add Comment</button>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };
