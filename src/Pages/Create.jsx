@@ -47,8 +47,8 @@ const Create = () => {
                 console.error("Error updating data:", error);
             } else {
                 console.log("Post updated successfully!");
-                // Redirect to the post page after updating
-                window.location.href = `/`; // Redirect to the updated post page
+                // Redirect to the home page after updating
+                window.location.href = `/`; // Redirect to the home page
             }
         } else {
             // If no ID is provided, create a new post
@@ -64,6 +64,8 @@ const Create = () => {
                 console.error("Error inserting data:", error);
             } else {
                 console.log("Post created successfully!");
+                // Redirect to the home page after creating
+                window.location.href = `/`; // Redirect to the home page
             }
         }
     }
@@ -84,7 +86,7 @@ const Create = () => {
                 <label htmlFor="image">Image URL:</label>
                 <input type="url" id="image" name="image" value={post.image} onChange={handleChange} />
 
-                <button type="submit">Submit</button>
+                <button type="submit" >Submit</button>
             </form>
         </div>
     );

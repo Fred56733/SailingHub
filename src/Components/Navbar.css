@@ -27,14 +27,15 @@
 /* Individual Link Styling */
 .navbar-link {
     text-decoration: none;
-    color: #00bcd4;
+    color: #006eff;
     font-size: 1.5rem;
     transition: color 0.3s ease;
+    margin: 10px;
 }
 
 /* Hover Effect for Links */
 .navbar-link:hover {
-    color: #006977;
+    color: #0055c5;
 }
 
 .navbar-logo {

@@ -1,5 +1,5 @@
 /* General Page Styling */
-.create {
+.signup {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +10,7 @@
 }
 
 /* Form Container */
-.create form {
+.signup form {
     background-color: #333;
     padding: 20px;
     border-radius: 8px;
@@ -20,7 +20,7 @@
 }
 
 /* Form Heading */
-.create h1 {
+.signup h1 {
     margin-bottom: 20px;
     font-size: 1.8rem;
     color: #ccc;
@@ -28,7 +28,7 @@
 }
 
 /* Label Styling */
-.create label {
+.signup label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
@@ -36,9 +36,8 @@
     color: #ccc;
 }
 
-/* Input and Textarea Styling */
-.create input,
-.create textarea {
+/* Input Styling */
+.signup input {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -49,31 +48,13 @@
     transition: border-color 0.3s ease;
 }
 
-.create input:focus,
-.create textarea:focus {
+.signup input:focus {
     border-color: #0058cc;
     outline: none;
 }
 
-/* Dropdown Styling */
-.create select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-.create select:focus {
-    border-color: #00bcd4;
-    outline: none;
-}
-
 /* Button Styling */
-.create button {
+.signup button {
     width: 100%;
     padding: 10px;
     background-color: #0058cc;
@@ -85,6 +66,19 @@
     transition: background-color 0.3s ease;
 }
 
-.create button:hover {
-    background-color: #0058cc;
+.signup button:hover {
+    background-color: #0046a1;
+}
+
+/* Link Styling */
+.signup a {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #0058cc;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    text-decoration: underline;
 }

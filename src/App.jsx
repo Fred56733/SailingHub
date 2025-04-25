@@ -4,6 +4,8 @@ import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
 import Create from './Pages/Create';
 import Post from './Pages/Post';
+import Login from './Pages/Login'; 
+import Signup from './Pages/Signup';
 import './App.css';
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
               <Route path="/create" element={<Create />} /> { /* For creating new crewmates */}
               <Route path="/create/:id" element={<Create />} /> {/* For editing */}
               <Route path="/Post/:id" element={<Post />} /> {/* For viewing posts */}
+              <Route path="/Login" element={<Login />} /> {/* For login */}
+              <Route path="/Signup" element={<Signup />} /> {/* For signup */}
           </Routes>
       </Router>
   );

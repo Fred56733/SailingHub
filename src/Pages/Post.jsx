@@ -70,7 +70,15 @@ const Post = () => {
             </div>
 
             <div className="button-container">
-                <button className="button" onClick={() => alert("Liked!")}>Like</button>
+                <p className="likes-count">Likes: {post ? post.likes : 0}</p>
+                <button className="button" onClick={async () => {
+                    const { error } = await supabase
+                        .from('sailing posts')
+                        .update({ likes: post.likes + 1 })
+                        .eq('id', id);
+                    if (error) console.error("Error liking post:", error);
+                    else setPost({ ...post, likes: post.likes + 1 }); // Update local state
+                }}>Like</button>
                 <button className="button" onClick={() => window.location.href = `/create/${id}`}>Edit Post</button>
                 <button className="button" onClick={async () => {
                     const { error } = await supabase

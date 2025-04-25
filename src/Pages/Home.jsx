@@ -19,6 +19,25 @@ const Home = () => {
         };
         fetchData();
     }, []);
+
+    function timeSincePost(postedTimeString) {
+        const postedDate = new Date(postedTimeString);
+        const now = new Date();
+      
+        const secondsAgo = Math.floor((now - postedDate) / 1000);
+        const minutesAgo = Math.floor(secondsAgo / 60);
+        const hoursAgo = Math.floor(minutesAgo / 60);
+        const daysAgo = Math.floor(hoursAgo / 24);
+        const yearsAgo = Math.floor(daysAgo / 365);
+      
+        if (hoursAgo < 24) {
+          return `${hoursAgo} hour${hoursAgo !== 1 ? 's' : ''} ago`;
+        } else if (daysAgo < 365) {
+          return `${daysAgo} day${daysAgo !== 1 ? 's' : ''} ago`;
+        } else {
+          return `${yearsAgo} year${yearsAgo !== 1 ? 's' : ''} ago`;
+        }
+      }      
         
 
     return (
@@ -29,9 +48,11 @@ const Home = () => {
         <div className="posts-grid">
             {posts.map((post) => (
                 <div key={post.id} className="posts-card"  onClick={() => navigate(`/post/${post.id}`)}>
+                    <p>{timeSincePost(post.created_at)}</p>
                     {post.image && <img src={post.image} alt={""} className="posts-card-img" />}
                     <h2>{post.title}</h2>
                     <p>{post.content}</p>
+                    <p>{"Likes: " + post.likes}</p>
                 </div>
             ))}
         </div>

@@ -61,7 +61,7 @@ p {
 .comment-item {
     padding: 5px;
     border-radius: 10px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #ccc;
 }
 
 .comment-item:last-child {
@@ -104,7 +104,7 @@ p {
     align-self: flex-end;
     padding: 10px 20px;
     background-color: #00bcd4;
-    color: #ffffff;
+    color: #ccc;
     border: none;
     border-radius: 10px;
     font-size: 1rem;
