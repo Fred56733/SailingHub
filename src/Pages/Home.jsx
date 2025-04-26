@@ -37,6 +37,14 @@ const Home = () => {
         }
     };
 
+    const sortByLikes = () => {
+        setFilteredPosts([...filteredPosts].sort((a, b) => b.likes - a.likes));
+    };
+
+    const sortByDate = () => {
+        setFilteredPosts([...filteredPosts].sort((a, b) => new Date(b.created_at) - new Date(a.created_at)));
+    };
+
     function timeSincePost(postedTimeString) {
         const postedDate = new Date(postedTimeString);
         const now = new Date();
@@ -62,8 +70,8 @@ const Home = () => {
             <p>Explore and create your own unique posts to others in the sailing community!</p>
             <p>Use the navigation bar at the top of the page to get started.</p>
             <div className="sorting-buttons">
-                <button onClick={() => setPosts([...posts].sort((a, b) => b.likes - a.likes))}>                    Sort by Likes                </button>
-                <button onClick={() => setPosts([...posts].sort((a, b) => new Date(b.created_at) - new Date(a.created_at)))}>                    Sort by Date                </button>
+            <button onClick={sortByLikes}>Sort by Likes</button>
+            <button onClick={sortByDate}>Sort by Date</button>
                 <input type="text" placeholder="Search..." onChange={handleSearch}/>
             </div>
             <div className="posts-grid">

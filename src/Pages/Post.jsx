@@ -54,7 +54,7 @@ const Post = () => {
         e.preventDefault();
         const { error } = await supabase
             .from("comments")
-            .insert({ post_id: id, content: newComment });
+            .insert({ post_id: id, content: newComment, user_id: user.id });
         if (error) console.error("Error adding comment:", error);
         else {
             setNewComment(""); // Clear the input field
@@ -136,18 +136,22 @@ const Post = () => {
                         <p>No comments yet. Be the first to comment!</p>
                     )}
 
-                    <form onSubmit={handleAddComment} className="add-comment-form">
-                        <textarea
-                            value={newComment}
-                            onChange={(e) => setNewComment(e.target.value)}
-                            placeholder="Leave comment here..."
-                            className="comment-input"
-                            required
-                        ></textarea>
-                        <button type="submit" className="button">
-                            Add Comment
-                        </button>
-                    </form>
+                    {user ? (
+                        <form onSubmit={handleAddComment} className="add-comment-form">
+                            <textarea
+                                value={newComment}
+                                onChange={(e) => setNewComment(e.target.value)}
+                                placeholder="Leave comment here..."
+                                className="comment-input"
+                                required
+                            ></textarea>
+                            <button type="submit" className="button">
+                                Add Comment
+                            </button>
+                        </form>
+                    ) : (
+                        <p>Please log in to leave a comment.</p>
+                    )}
                 </div>
             </div>
         </div>
