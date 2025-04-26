@@ -8,14 +8,28 @@ const Post = () => {
     const [post, setPost] = useState(null);
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
+    const [user, setUser] = useState(null); // Store the logged-in user
+
+    // Fetch the logged-in user's data
+    useEffect(() => {
+        const fetchUser = async () => {
+            const { data, error } = await supabase.auth.getUser();
+            if (error) {
+                console.error("Error fetching user:", error.message);
+            } else {
+                setUser(data.user); // Set the logged-in user
+            }
+        };
+        fetchUser();
+    }, []);
 
     // Fetch the post details
     useEffect(() => {
         const fetchPost = async () => {
             const { data, error } = await supabase
-                .from('sailing posts')
-                .select('*')
-                .eq('id', id)
+                .from("sailing posts")
+                .select("*")
+                .eq("id", id)
                 .single();
             if (error) console.error("Error fetching post:", error);
             else setPost(data);
@@ -23,10 +37,10 @@ const Post = () => {
 
         const fetchComments = async () => {
             const { data, error } = await supabase
-                .from('comments')
-                .select('*')
-                .eq('post_id', id)
-                .order('created_at', { ascending: true });
+                .from("comments")
+                .select("*")
+                .eq("post_id", id)
+                .order("created_at", { ascending: true });
             if (error) console.error("Error fetching comments:", error);
             else setComments(data);
         };
@@ -39,19 +53,18 @@ const Post = () => {
     const handleAddComment = async (e) => {
         e.preventDefault();
         const { error } = await supabase
-            .from('comments')
+            .from("comments")
             .insert({ post_id: id, content: newComment });
         if (error) console.error("Error adding comment:", error);
         else {
             setNewComment(""); // Clear the input field
             const { data } = await supabase
-                .from('comments')
-                .select('*')
-                .eq('post_id', id)
-                .order('created_at', { ascending: true });
+                .from("comments")
+                .select("*")
+                .eq("post_id", id)
+                .order("created_at", { ascending: true });
             setComments(data); // Refresh comments
         }
-
     };
 
     return (
@@ -71,24 +84,42 @@ const Post = () => {
 
             <div className="button-container">
                 <p className="likes-count">Likes: {post ? post.likes : 0}</p>
-                <button className="button" onClick={async () => {
-                    const { error } = await supabase
-                        .from('sailing posts')
-                        .update({ likes: post.likes + 1 })
-                        .eq('id', id);
-                    if (error) console.error("Error liking post:", error);
-                    else setPost({ ...post, likes: post.likes + 1 }); // Update local state
-                }}>Like</button>
-                <button className="button" onClick={() => window.location.href = `/create/${id}`}>Edit Post</button>
-                <button className="button" onClick={async () => {
-                    const { error } = await supabase
-                        .from('sailing posts')
-                        .delete()
-                        .eq('id', id);
-                    if (error) console.error("Error deleting post:", error);
-                    else window.location.href = "/"; // Redirect to home after deletion
-                }}>Delete Post</button>
-
+                <button
+                    className="button"
+                    onClick={async () => {
+                        const { error } = await supabase
+                            .from("sailing posts")
+                            .update({ likes: post.likes + 1 })
+                            .eq("id", id);
+                        if (error) console.error("Error liking post:", error);
+                        else setPost({ ...post, likes: post.likes + 1 }); // Update local state
+                    }}
+                >
+                    Like
+                </button>
+                {user && user.id === post?.user_id && (
+                    <>
+                        <button
+                            className="button"
+                            onClick={() => (window.location.href = `/create/${id}`)}
+                        >
+                            Edit Post
+                        </button>
+                        <button
+                            className="button"
+                            onClick={async () => {
+                                const { error } = await supabase
+                                    .from("sailing posts")
+                                    .delete()
+                                    .eq("id", id);
+                                if (error) console.error("Error deleting post:", error);
+                                else window.location.href = "/"; // Redirect to home after deletion
+                            }}
+                        >
+                            Delete Post
+                        </button>
+                    </>
+                )}
             </div>
 
             {/* Comments Section */}
@@ -104,7 +135,7 @@ const Post = () => {
                     ) : (
                         <p>No comments yet. Be the first to comment!</p>
                     )}
-                
+
                     <form onSubmit={handleAddComment} className="add-comment-form">
                         <textarea
                             value={newComment}
@@ -113,7 +144,9 @@ const Post = () => {
                             className="comment-input"
                             required
                         ></textarea>
-                        <button type="submit" className="button">Add Comment</button>
+                        <button type="submit" className="button">
+                            Add Comment
+                        </button>
                     </form>
                 </div>
             </div>

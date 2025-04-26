@@ -22,6 +22,7 @@ const Login = () => {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) {
             console.error("Error logging in:", error.message);
+            alert(error.message); // Show error message to the user
         } else {
             console.log("Logged in successfully!");
             window.location.href = "/profile"; // Redirect to profile page

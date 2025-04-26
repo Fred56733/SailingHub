@@ -55,7 +55,6 @@ const Create = () => {
                 console.error("Error updating data:", error);
             } else {
                 console.log("Post updated successfully!");
-                // Redirect to the home page after updating
                 window.location.href = `/`; // Redirect to the home page
             }
         } else {
@@ -83,7 +82,7 @@ const Create = () => {
 
     return (
         <div className="create">
-            <h1>Create a New Post</h1>
+            <h1>{id ? "Edit Post" : "Create a New Post"}</h1>
             <form onSubmit={handleSubmit}>
                 {/* Title Field */}
                 <label htmlFor="title">Title:</label>
@@ -97,7 +96,7 @@ const Create = () => {
                 <label htmlFor="image">Image URL:</label>
                 <input type="url" id="image" name="image" value={post.image} onChange={handleChange} />
 
-                <button type="submit" >Submit</button>
+                <button type="submit" >{id ? "Update Post" : "Create Post"}</button>
             </form>
         </div>
     );
