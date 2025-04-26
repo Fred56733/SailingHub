@@ -45,6 +45,10 @@ const Home = () => {
         <h1>Welcome to Sailing Hub</h1>
         <p>Explore and create your own unique posts to others in the sailing community!</p>
         <p>Use the navigation bar at the top of the page to get started.</p>
+        <div className="sorting-buttons">
+            <button onClick={() => setPosts([...posts].sort((a, b) => b.likes - a.likes))}>Sort by Likes</button>
+            <button onClick={() => setPosts([...posts].sort((a, b) => new Date(b.created_at) - new Date(a.created_at)))}>Sort by Date</button>
+        </div>
         <div className="posts-grid">
             {posts.map((post) => (
                 <div key={post.id} className="posts-card"  onClick={() => navigate(`/post/${post.id}`)}>

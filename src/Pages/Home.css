@@ -11,7 +11,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 /* Individual Card Styling */
@@ -47,4 +47,16 @@
 .posts-card p {
     font-size: 1rem;
     color: #ccc;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    background-color: #0058cc;
+    color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }

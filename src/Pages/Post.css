@@ -103,8 +103,8 @@ p {
 .button {
     align-self: flex-end;
     padding: 10px 20px;
-    background-color: #00bcd4;
-    color: #ccc;
+    background-color: #0058cc;
+    color: #ffffff;
     border: none;
     border-radius: 10px;
     font-size: 1rem;
@@ -112,5 +112,5 @@ p {
 }
 
 .button:hover {
-    background-color: #006977;
+    background-color: #0046a1;
 }

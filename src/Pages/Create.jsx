@@ -32,6 +32,14 @@ const Create = () => {
     const handleSubmit = async (event) => {
         event.preventDefault(); 
 
+        const { data: { user } } = await supabase.auth.getUser(); // Get the current user
+
+        if (!user) {
+            alert("Please log in to create a post.");
+            return; 
+        }
+
+
         if (id) {
             // If an ID is provided, update the existing post
             const { error } = await supabase
@@ -52,12 +60,15 @@ const Create = () => {
             }
         } else {
             // If no ID is provided, create a new post
+            const { data: { user } } = await supabase.auth.getUser(); // Get the current user
+
             const { error } = await supabase
                 .from('sailing posts')
                 .insert({
                     title: post.title, 
                     content: post.content, 
-                    image: post.image 
+                    image: post.image,
+                    user_id: user.id // Associate the post with the current user
                 });
 
             if (error) {

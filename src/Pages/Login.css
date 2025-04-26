@@ -58,8 +58,8 @@
     width: 100%;
     padding: 10px;
     background-color: #0058cc;
-    color: #ccc;
-    border: none;
+    color: #ffffff;
+    border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 1.2rem;
     cursor: pointer;
