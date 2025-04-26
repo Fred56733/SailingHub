@@ -1,4 +1,5 @@
 import React from "react";
+import { supabase } from "../client";
 import "./signup.css"
 
 const Signup = () => {
@@ -11,7 +12,6 @@ const Signup = () => {
             console.error("Error signing up:", error);
         } else {
             console.log("Signed up successfully!");
-            window.location.href = "/"; // Redirect to home page
         }
     };
 

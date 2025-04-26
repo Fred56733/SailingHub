@@ -6,6 +6,7 @@ import Create from './Pages/Create';
 import Post from './Pages/Post';
 import Login from './Pages/Login'; 
 import Signup from './Pages/Signup';
+import Profile from './Pages/Profile';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
               <Route path="/Post/:id" element={<Post />} /> {/* For viewing posts */}
               <Route path="/Login" element={<Login />} /> {/* For login */}
               <Route path="/Signup" element={<Signup />} /> {/* For signup */}
+              <Route path="/Profile" element={<Profile />} /> {/* For viewing profile */}
           </Routes>
       </Router>
   );
