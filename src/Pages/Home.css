@@ -19,6 +19,7 @@
     background-color: #333333c2;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
     padding: 15px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -34,7 +35,6 @@
     width: 100%;
     max-width: 150px;
     height: auto;
-
 }
 
 /* Card Text Styling */
@@ -60,3 +60,31 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+button:hover {
+    background-color: #0046a1;
+}
+
+/* Search Bar Styling */
+input[type="text"] {
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #333;
+    color: #ccc;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #0058cc;
+    box-shadow: 0 0 5px #0058cc;
+}
+
