@@ -38,7 +38,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <img src="/src/assets/logo.png" alt="Logo" className="navbar-logo" />
+            <img src="/src/assets/SailingHub logo.png" alt="Logo" className="navbar-logo" />
             <ul className="navbar-links">
                 <li>
                     <Link to="/" className="navbar-link">Home</Link>
