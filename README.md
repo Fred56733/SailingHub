@@ -54,24 +54,22 @@ The following **additional** features are implemented:
 
 * [x] Only a signed in user can create posts.
 * [x] Only the user that created the post can edit/delete it.
-* [x] 
+* [x] Only signed in users can comment
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/Vq5NrqS.gif' title='Video Walkthrough pt1' width='' alt='Video Walkthrough' />
+
+<img src='https://i.imgur.com/He49HWC.gif' title='Video Walkthrough pt2' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+GIF recored with streamlabs then converted with Ezgif.com and posted on imgur
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Great application!
 
 ## License
 

@@ -12,6 +12,7 @@ const Signup = () => {
             console.error("Error signing up:", error);
         } else {
             console.log("Signed up successfully!");
+            window.location.href = "/"; // Redirect to login page after signup
         }
     };
 
