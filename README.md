@@ -6,7 +6,7 @@ This web app: **SailingHub is a platform that allows any in or interested in the
 
 Time spent: **12** hours spent in total
 
-Link: ** https://sailing-hub.netlify.app/ **
+Link: https://sailing-hub.netlify.app/
 
 ## Required Features
 
